@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-qemu-action@v2
-        name: Set up QEMU
       - uses: docker/setup-buildx-action@v2
-        name: Set up Docker Buildx
       - uses: docker/login-action@v2
         with:
           username: nim65s
@@ -26,8 +24,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: nim65/cargo-binstall:latest
+          tags: nim65s/cargo-binstall:latest
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build mdbook image
         uses: docker/build-push-action@v4
@@ -36,5 +36,7 @@ jobs:
           file: app.Dockerfile
           push: true
           build-args: APP=mdbook
-          tags: nim65/cargo-binstall:mdbook
+          tags: nim65s/cargo-binstall:mdbook
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
