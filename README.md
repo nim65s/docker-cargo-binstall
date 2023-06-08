@@ -1,6 +1,7 @@
-# Docker for cargo-binstall
+# Docker images for cargo-binstall
 
-usage eg. with mdbook:
+You can either use eg. `nim65s/cargo-binstall:mdbook` to get a bullseye with the right binary,
+or build your own with eg.:
 
 ```Dockerfile
 FROM nim65s/cargo-binstall as builder
@@ -11,3 +12,7 @@ FROM debian:bullseye
 
 COPY --from=builder /usr/local/cargo/bin/mdbook /usr/local/bin/mdbook
 ```
+
+## Currently available apps:
+
+- mdbook
