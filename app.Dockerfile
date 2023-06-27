@@ -4,7 +4,7 @@ ARG APP
 
 RUN cargo binstall -y $APP
 
-FROM debian:bullseye
+FROM debian:bookworm
 
 ARG APP
 
