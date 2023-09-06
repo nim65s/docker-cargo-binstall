@@ -1,6 +1,6 @@
 # Docker images for cargo-binstall
 
-You can either use eg. `nim65s/cargo-binstall:mdbook` to get a bookworm with the right binary,
+You can either use eg. `nim65s/cargo-binstall:mdbook` to get a bookworm container with the right binary for your CI,
 or build your own with eg.:
 
 ```Dockerfile
